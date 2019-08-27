@@ -1,9 +1,7 @@
 import random
 
 #toDoList
-#dar "vidas" al usuario
-#dar "pistas" si numero es < o <
-#opcion restart
+#pruebas de error
 
 def randomGame():
     intentos = 5
@@ -13,21 +11,40 @@ def randomGame():
 
     print("bienvenido a adivina el numero!")
     print("estoy pensando en un numero del 1 al 10")
-    print("adivina cual es")
+    print("Puedes adivinar cual es? Tienes {} intentos...".format(intentos))
     while intentos>0:
-        guess = int(input("Mi adivinanza es: "))
+        try:
+            guess = int(input("Mi adivinanza es: "))
 
-        if guess == numero:
-            print("Felicitaciones, adivinaste el número!")
-            break
+        except ValueError:
+            print("Por favor introduce un número del 1 al 10")
+
         else:
-            if guess > numero:
+            intentos -= 1
+
+            if guess == numero:
+                print("Felicitaciones, adivinaste el número!")
+
+                reintentar = input("Jugar nuevamente: si/no ")
+
+                if reintentar.lower() == "si":
+                    randomGame()
+                else:
+                    break
+            elif guess > numero:
                 print("oops, parece que te pasaste")
             else:
                 print("oops, te has quedado corto!")
-            print("Te quedan " + str(intentos-1) + " intentos")
-            intentos -= 1
 
-    print("Gracias por jugar")
+            if intentos > 0:
+                print("Te quedan {} intentos de {}".format(intentos, "5"))
+
+    else:
+        print("Se te acabaron los intentos, el numero era {}".format(numero))
+        print("Gracias por jugar\n")
+        reintentar = input("Jugar nuevamente: si/no ")
+
+        if reintentar.lower() == "si":
+            randomGame()
 
 randomGame()
