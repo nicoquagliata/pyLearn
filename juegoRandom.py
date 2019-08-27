@@ -1,19 +1,33 @@
 import random
 
-numero = random.randint(1,10)
+#toDoList
+#dar "vidas" al usuario
+#dar "pistas" si numero es < o <
+#opcion restart
 
-print(numero)
+def randomGame():
+    intentos = 5
+    numero = random.randint(1,10)
 
-print("bienvenido a adivina el numero!")
-print("estoy pensando en un numero del 1 al 10")
-print("adivina cual es")
-while True:
-    guess = int(input("El numero es: "))
+    print(numero)
 
-    if guess == numero:
-        print("adivinaste")
-        break
-    else:
-        print("fallaste, intentalo de nuevo")
+    print("bienvenido a adivina el numero!")
+    print("estoy pensando en un numero del 1 al 10")
+    print("adivina cual es")
+    while intentos>0:
+        guess = int(input("Mi adivinanza es: "))
 
-print("Gracias por jugar")
+        if guess == numero:
+            print("Felicitaciones, adivinaste el número!")
+            break
+        else:
+            if guess > numero:
+                print("oops, parece que te pasaste")
+            else:
+                print("oops, te has quedado corto!")
+            print("Te quedan " + str(intentos-1) + " intentos")
+            intentos -= 1
+
+    print("Gracias por jugar")
+
+randomGame()
