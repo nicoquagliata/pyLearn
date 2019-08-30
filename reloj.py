@@ -1,5 +1,4 @@
 #todo List
-#1 agregar 2 lugares
 #2 poner formato de 12 horas (strftime.org)
 #3 cambiar el formato de fecha
 
@@ -11,6 +10,8 @@ def ver_instrucciones():
     print("2 - ver fecha y hora")
     print("3 - ver hora en ny")
     print("4 - ver hora en sf")
+    print("7 - ver hora en madrid")
+    print("8 - ver hora en tokio")
     print("5 - ver instrucciones")
     print("6 - salir")
 
@@ -53,6 +54,10 @@ def ver_reloj():
             elif operacion==6:
                 print("Adios!")
                 break
+            elif operacion == 7:
+                ver_hora(+1)
+            elif operacion == 8:
+                ver_hora(+9)
             else:
                 print("no reconozco esa operacion")
 
