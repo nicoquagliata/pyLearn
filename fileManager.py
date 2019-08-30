@@ -10,3 +10,5 @@ print(re.match(r"abcdefghijklmnopqrstuvwxyz",informacion))
 print(re.match(r"abcdefghijk4qrstuvwxyz",informacion))
 
 print(re.search(r"0123456789",informacion))
+
+print(re.search(r"\+\d-\(\d*\)-\d*-\d*",informacion))
