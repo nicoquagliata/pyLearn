@@ -1,6 +1,7 @@
 # Agenda
 agenda_telefonica = dict()
 
+
 def mostrar_mensaje(mensaje):
     print("\n------------ Agenda Telefonica ------------------")
     print(mensaje)
@@ -45,16 +46,18 @@ def ver_contacto():
 
 
 def ver_todos_contactos():
-    if len(agenda_telefonica)==0:
+    if len(agenda_telefonica) == 0:
         mostrar_mensaje("no tienes contactos")
     else:
         mensaje = None
         for contacto in agenda_telefonica:
-            if(mensaje==None):
-                mensaje = "{} - {}".format(contacto.capitalize(),agenda_telefonica[contacto])
+            numero = agenda_telefonica[contacto]
+            if(mensaje is None):
+                mensaje = "{} - {}".format(contacto.capitalize(), numero)
             else:
-                mensaje += "\n{} - {}".format(contacto.capitalize(),agenda_telefonica[contacto])
+                mensaje += "\n{} - {}".format(contacto.capitalize(), numero)
         mostrar_mensaje(mensaje)
+
 
 def iniciar_agenda():
     print("Bienvenido a la agenda")
@@ -89,5 +92,5 @@ def iniciar_agenda():
                 print("operacion desconocida, pruebe de nuevo")
                 continue
 
-iniciar_agenda()
 
+iniciar_agenda()
