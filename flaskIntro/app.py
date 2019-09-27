@@ -7,11 +7,12 @@ app = Flask(__name__)
 
 @app.route("/")
 @app.route("/<string:username>")
-def welcome(username=None):
-    if username is None:
-        return('Hello // please type "/yourName" to be properly welcome')
-    else:
-        return('Hello {} || Good to see you'.format(username))
+def welcome(username="invitado"):
+
+    context = {'nombre':username}
+
+    return render_template('index.html', **context)
+
 
 
 @app.route("/suma/<int:num1>/<int:num2>")
